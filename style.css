@@ -1,0 +1,56 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: #caaeae;
+}
+
+.header{
+    color: darkblue;
+    font-family: cursive;
+    font-weight: 700;
+    font-size: 45px;
+    box-shadow: 1px 3px 6px 6px #23216c;
+}
+.cardContainer{
+    margin: 4rem auto !important;
+}
+
+.card{
+    background-color: black;
+    color: white;
+    border: 3px solid coral;
+    box-shadow: 11px 7px 3px 1px grey;
+}
+
+.cardHeading{
+    color: coral;
+    font-size: 18px;
+    font-family: emoji;
+}
+
+.catgry{
+    color: crimson;
+    margin-left: 5px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    letter-spacing: 1.7px;
+}
+
+.main{
+    padding: 4rem 4rem;
+    font-size: 30px;
+    font-family:Arial, Helvetica, sans-serif;
+    letter-spacing: 1.3px;
+}
+
+.main>p:first-child{
+    color: aquamarine;
+}
+.main>p:last-child{
+    color:darkturquoise;
+    font-style: italic;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
