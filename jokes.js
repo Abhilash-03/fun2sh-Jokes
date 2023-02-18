@@ -1,22 +1,32 @@
 let btn = document.getElementById("btn");
+let jokeBody = document.getElementById("jokeBody");
 
 const jokes = async () => {
-  const url = "https://v2.jokeapi.dev/joke/Any?safe-mode&type=twopart";
+  try {
+    const url = `https://v2.jokeapi.dev/joke/Any?safe-mode&type=twopart`;
 
-  let response = await fetch(url);
-  let json = await response.json();
-  return json;
+    let response = await fetch(url);
+    let json = await response.json();
+    return fetchJokes(json);
+  } 
+  catch (err) {
+    err = "";
+    err += `
+    <blockquote class="blockquote mb-0">
+     <div class = "main">
+     <p class="text-center headPart">"404"- Data not found! 😞</p>
+     <p class="text-center smallPart">📶Check your internet connection...</p>
+     </div>
+   </blockquote>
+    `;
+    jokeBody.innerHTML = err;
+  }
 };
 
-const startJoke = () => {
-  let joke = jokes();
-  joke.then((data) => fetchJokes(data)).catch((error) => console.log(error));
-};
-
-startJoke();
+jokes();
 
 btn.addEventListener("click", () => {
-  startJoke();
+  jokes();
 });
 
 const fetchJokes = (data) => {
@@ -29,5 +39,5 @@ const fetchJokes = (data) => {
      </div>
    </blockquote>`;
 
-  document.getElementById("jokeBody").innerHTML = showJokes;
+  jokeBody.innerHTML = showJokes;
 };

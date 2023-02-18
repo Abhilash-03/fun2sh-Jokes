@@ -54,3 +54,8 @@ body{
     font-style: italic;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
+
+.smallPart{
+    font-size: small;
+    color: red !important;
+}
