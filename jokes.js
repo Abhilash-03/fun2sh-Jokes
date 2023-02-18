@@ -1,13 +1,20 @@
 let btn = document.getElementById("btn");
 let jokeBody = document.getElementById("jokeBody");
+let select = document.getElementById('selectOption');
+
+const changeCategory = async()=>{
+  let choose = select.value;
+  const url = `https://v2.jokeapi.dev/joke/${choose}?type=twopart`;
+  let response = await fetch(url);
+  let json = await response.json();
+  return fetchJokes(json);
+}
+
+select.addEventListener('click', changeCategory);
 
 const jokes = async () => {
   try {
-    const url = `https://v2.jokeapi.dev/joke/Any?safe-mode&type=twopart`;
-
-    let response = await fetch(url);
-    let json = await response.json();
-    return fetchJokes(json);
+    changeCategory();
   } 
   catch (err) {
     err = "";
@@ -25,9 +32,10 @@ const jokes = async () => {
 
 jokes();
 
-btn.addEventListener("click", () => {
+btn.addEventListener("click", (e) => {
   jokes();
 });
+
 
 const fetchJokes = (data) => {
   let showJokes = "";
@@ -41,3 +49,4 @@ const fetchJokes = (data) => {
 
   jokeBody.innerHTML = showJokes;
 };
+
